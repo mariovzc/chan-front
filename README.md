@@ -19,3 +19,6 @@ https://github.com/mariovzc/chan-front
   * get '/:board/:post/:id', to: 'comments#show' #get the current comment - obtener el comentario -> params board name, post id and comment id
   * post '/:name', to: 'post#create' #create a new post - crear un nuevo post -> params url: board name, body : title, user_ip
   * post '/:board/:post', to: 'comments#create'  #create a new comment - crear un nuevo comentario -> params
+
+== Api URL
+  http://chanapi.herokuapp.com/
