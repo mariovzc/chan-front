@@ -8,3 +8,6 @@
 .hidden{
   display: none;
 }
+.list-item{
+  outline: none !important;
+}

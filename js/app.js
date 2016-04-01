@@ -13,7 +13,7 @@ var Board = {
 
 			for (i =0; i< response.boards.length; i++){
 				var board = response.boards[i];
-				var button =  createElement("button",response.boards[i].name,"","board-button list-group-item");
+				var button =  createElement("button",response.boards[i].name,"","board-button list-group-item list-item");
 				button.on('click', (function(boardCopy) {					
 					return function() {
 						Board.goTo(boardCopy.name);
@@ -40,13 +40,25 @@ var Post = {
 			for (i = 0; i < response.post.length; i++) {
 				var post = response.post[i];
 				console.log(post);
-				var button = createElement("button", post.title,"","post-button list-group-item");
+				var button = createElement("button", post.title,"","post-button list-group-item list-item");
 				button.on('click', (function(postCopy) {					
 					return function() {
-						console.log(postCopy.title);
+						Comment.list(postCopy.id,name);
 					}
 				})(post));
 				$( "#dataList" ).append( button );
+			}
+		});
+	}
+}
+var Comment = {
+	list: function (post,name){
+		clear();
+		pos = 2;
+		console.log(post,name);
+		$.get(url + name + "/" + post, function(response){
+			for (i=0; i < response.comments.length; i++){
+				$( ".boardsContainer" ).append( createElement("div",response.comments[i].body,"", "jumbotron") );
 			}
 		});
 	}
