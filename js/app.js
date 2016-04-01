@@ -1,17 +1,19 @@
 var url = "http://chanapi.herokuapp.com/";
-
+var pos;
 var Board = {
 	list : function (){
+		clear();
+		$( "#addButton" ).addClass( "hidden" );
 		$.get( url + "boards", function( response ) {
 			var dataList = $( document.createElement('div') );
 
 			
-			$( ".boardsContainer" ).append( create("h1","Select a Board") );
-			$( ".boardsContainer" ).append( create("div","","dataList", "list-group") );
+			$( ".boardsContainer" ).append( createElement("h1","Select a Board","", "text-center") );
+			$( ".boardsContainer" ).append( createElement("div","","dataList", "list-group") );
 
 			for (i =0; i< response.boards.length; i++){
 				var board = response.boards[i];
-				var button =  create("button",response.boards[i].name,"","board-button list-group-item");
+				var button =  createElement("button",response.boards[i].name,"","board-button list-group-item");
 				button.on('click', (function(boardCopy) {					
 					return function() {
 						Board.goTo(boardCopy.name);
@@ -24,19 +26,21 @@ var Board = {
 	},
 	goTo : function(name){
 		clear();
+		$( "#addButton" ).removeClass( "hidden" );
 		Post.list(name);
+		pos = 1;
 	}
 };
 var Post = {
 	list: function (name){
-		$( ".boardsContainer" ).append( create("h1","All the post in " + name) );
-		$( ".boardsContainer" ).append( create("div","","dataList", "list-group") );
+		$( ".boardsContainer" ).append( createElement("h1","All the post in " + name, "", "text-center") );
+		$( ".boardsContainer" ).append( createElement("div","","dataList", "list-group") );
 
 		$.get( url + name, function(response) {
 			for (i = 0; i < response.post.length; i++) {
 				var post = response.post[i];
 				console.log(post);
-				var button = create("button", post.title,"","post-button list-group-item");
+				var button = createElement("button", post.title,"","post-button list-group-item");
 				button.on('click', (function(postCopy) {					
 					return function() {
 						console.log(postCopy.title);
@@ -47,7 +51,8 @@ var Post = {
 		});
 	}
 }
-function create(element,text,id,clss){
+Board.list();
+function createElement(element,text,id,clss){
 	var element = $(document.createElement(element));
 	if (text)
 		element.html(text);
@@ -63,4 +68,17 @@ function create(element,text,id,clss){
 function clear(){
 	$(".boardsContainer").html("");
 }
-Board.list();
+$( "#mainIcon" ).click(function() {
+	Board.list();
+});
+$( "#addButton" ).click(function() {
+	$('.modal').modal('toggle');
+	var titulo = $(".modal-title");
+	var body = $(".modal-body");
+	var footer = $(".modal-footer");
+	if (pos == 1) {
+		titulo.html("Create A Post");
+	}else{
+		titulo.html("Create A Comment for the Post");
+	}
+});
