@@ -20,7 +20,7 @@
 .material-card {
   display: block;
   position: relative;
-  width: 450px;
+  width: auto;
   height: auto;
   padding: 10px;
   box-sizing: border-box;
@@ -90,7 +90,7 @@
 }
 .material-card-title {
   display: inline-block;
-  width: 290px;
+  width: auto;
   height: 30px;
   margin: 0px 0 5px 0;
   overflow: hidden;
