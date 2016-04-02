@@ -14,9 +14,14 @@ var Board = {
 				var html = html + '<h2 class="mdl-card__title-text">'+ response.boards[i].name+'</h2></div>';
 				var html = html + '<div class="mdl-card__supporting-text">' + "I AM A DESCRIPTION"+ '</div>';
 				var html = html + '<div class="mdl-card__actions mdl-card--border">';
-				var html = html + '<a class="boardButton mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">View Updates </a></div></div><br>'
+				var html = html + '<a id="board_'+response.boards[i].name+'"  class="boardButton mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Go to the Board </a></div></div><br>'
 				$("#dataList").append(html);
 			}
+			$('.boardButton').on('click', function() {
+				var data = this.id;
+				var arr = data.split('_');
+				Board.goTo(arr[1]);
+			});
 		});
 
 	},
