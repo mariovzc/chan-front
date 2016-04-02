@@ -82,7 +82,7 @@
   box-sizing: border-box;
   outline: 1px solid black;
   background:
-    url('https://static.webshopapp.com/shops/054935/files/023600773/375px-professionelle-reinigung-p-svg.png') no-repeat #46B6AC;
+    url('../img/post.png') no-repeat #46B6AC;
     background-size: 100%;
 }
 .right-arrow{
