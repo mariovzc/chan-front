@@ -7,14 +7,14 @@ var Board = {
 		$.get( url + "boards", function( response ) {
 			var dataList = $( document.createElement('div') );
 
-			
+
 			$( ".boardsContainer" ).append( createElement("h1","Select a Board","", "text-center") );
 			$( ".boardsContainer" ).append( createElement("div","","dataList", "list-group") );
 
 			for (i =0; i< response.boards.length; i++){
 				var board = response.boards[i];
 				var button =  createElement("button",response.boards[i].name,"","board-button list-group-item list-item");
-				button.on('click', (function(boardCopy) {					
+				button.on('click', (function(boardCopy) {
 					return function() {
 						Board.goTo(boardCopy.name);
 					}
@@ -31,26 +31,6 @@ var Board = {
 		pos = 1;
 	}
 };
-var Post = {
-	list: function (name){
-		$( ".boardsContainer" ).append( createElement("h1","All the post in " + name, "", "text-center") );
-		$( ".boardsContainer" ).append( createElement("div","","dataList", "list-group") );
-
-		$.get( url + name, function(response) {
-			for (i = 0; i < response.post.length; i++) {
-				var post = response.post[i];
-				console.log(post);
-				var button = createElement("button", post.title,"","post-button list-group-item list-item");
-				button.on('click', (function(postCopy) {					
-					return function() {
-						Comment.list(postCopy.id,name);
-					}
-				})(post));
-				$( "#dataList" ).append( button );
-			}
-		});
-	}
-}
 var Comment = {
 	list: function (post,name){
 		clear();
