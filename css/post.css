@@ -1,8 +1,148 @@
-.postHeader{
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
+/* Center elements */
+/* Material's Z-Depth */
+.material-icons.md-18 {
+  font-size: 18px;
+}
 
+.material-icons.md-24 {
+  font-size: 24px;
 }
-.postDate{
+
+.material-icons.md-36 {
+  font-size: 36px;
 }
-.postContainer{
-  margin-top: 50px;
+
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+.material-card {
+  display: block;
+  position: relative;
+  width: 450px;
+  height: auto;
+  padding: 10px;
+  box-sizing: border-box;
+  background: #FAFAFA;
+  -webkit-transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+  transition: all 0.3s cubic-bezier(0.55, 0, 0.1, 1);
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1), 0 2px 3px 0 rgba(0, 0, 0, 0.2);
+}
+.material-card:hover {
+  box-shadow: 0 6px 13px 0 rgba(0, 0, 0, 0.2), 0 8px 18px 0 rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.material-card:first-child {
+  border-top: 2px solid #FFF;
+  border-radius: 4.5px 4.5px 0 0;
+}
+.material-card:last-child {
+  border-radius: 0 0 4.5px 4.5px;
+}
+.material-card.triggered {
+  margin: 10px 0 10px 0;
+  border-top: 2px solid #FFF;
+  border-radius: 4.5px;
+  z-index: 2;
+  box-shadow: 0 15px 25px 0 rgba(0, 0, 0, 0.2), 0 20px 35px 0 rgba(0, 0, 0, 0.2);
+}
+.material-card.triggered .material-card-content {
+  max-height: 950px;
+  padding: 10px 10px 0 10px;
+  margin: 20px 0 5px 0;
+  visibility: visible;
+  overflow: initial;
+  opacity: 1;
+}
+.material-card.triggered .material-card-content .material-card-content-img {
+  opacity: 1;
+}
+.material-card > header {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 80px;
+  outline: 1px solid black;
+}
+
+.material-card-icon {
+  display: block;
+  position: relative;
+  width: 80px;
+  height: 100%;
+  float: left;
+  margin: 0 10px 0 0;
+  border-radius: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  outline: 1px solid black;
+  background:
+    url('https://static.webshopapp.com/shops/054935/files/023600773/375px-professionelle-reinigung-p-svg.png') no-repeat #46B6AC;
+    background-size: 100%;
+}
+.right-arrow{
+  line-height: 2 !important;
+}
+.material-card-title {
+  display: inline-block;
+  width: 290px;
+  height: 30px;
+  margin: 0px 0 5px 0;
+  overflow: hidden;
+  font-family: Roboto;
+  font-size: 1.2em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #595959;
+}
+
+* {
+  outline: none !important;
+}
+
+.material-card-info {
+  display: inline-block;
+  position: relative;
+  padding: 5px 5px 5px 0;
+  box-sizing: border-box;
+  outline: 1px solid black;
+  color: #a6a6a6;
+}
+.material-card-info i {
+  font-size: 1.3em;
+  margin: 2px 5px 0 0;
+  float: left;
+}
+.material-card-info time {
+  display: inline-block;
+  margin: 5px 0 0 0;
+  font-family: Roboto;
+  font-size: 0.9em;
+}
+
+.material-card-action {
+  display: block;
+  position: relative;
+  width: 35px;
+  height: 100%;
+  float: right;
+  color: #a6a6a6;
+  outline: 1px solid black;
+}
+.material-card-action a {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }

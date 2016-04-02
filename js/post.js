@@ -1,28 +1,21 @@
 var Post = {
 	list: function (name){
 		$( ".boardsContainer" ).append( createElement("h1","All the post in " + name, "", "text-center") );
-		$( ".boardsContainer" ).append( createElement("div","","dataList", "") );
-
+		$( ".boardsContainer" ).append( createElement("div","","dataList", "content-grid mdl-grid") );
 		$.get( url + name, function(response) {
 			for (i = 0; i < response.post.length; i++) {
-
 				var post = response.post[i];
 				console.log(post);
-        var div = createElement("div","","", "postContainer center-block");
-        var header  = createElement("div","","", "postHeader");
-        var date = createElement("div",post.created_at,"", "postDate");
-        var h6 = createElement("h6",post.title,"", "");
-        var p  = createElement("p","Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.","", "");
-        header.append(h6,date);
-        div.append(header,p);
-        var button = createElement("button", post.title,"","post-button");
-				button.on('click', (function(postCopy) {
-					return function() {
-						Comment.list(postCopy.id,name);
-					}
-				})(post));
-				$( "#dataList" ).append( div, "<br>" );
-			}
+				html = '<div class="mdl-cell mdl-cell--6-col mdl-cell--2-col-tablet mdl-cell--4-col-phone">';
+				html += '<article class="material-card">';
+				html += '<header><div class="material-card-icon"></div>';
+				html += '<h2 class="material-card-title">'+post.title+'</h2>';
+				html += '<div class="material-card-action">';
+				html += '<a href="#"> <i class="right-arrow material-icons md-36">keyboard_arrow_right</i></a></div>';
+				html += '<div class="material-card-info"><i class="material-icons">access_time</i><time>Created: '+post.created_at+'</time></div></header></article><br>';
+				html += '</div>';
+				$("#dataList").append(html);
+    	}
 		});
 	}
 }
