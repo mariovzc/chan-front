@@ -12,7 +12,7 @@ var Board = {
 				var html = ' <div class="card-square mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone mdl-card mdl-shadow--4dp">';
 				var html = html + '<div class="mdl-card__title mdl-card--expand">';
 				var html = html + '<h2 class="mdl-card__title-text">'+ response.boards[i].name+'</h2></div>';
-				var html = html + '<div class="mdl-card__supporting-text">' + "I AM A DESCRIPTION"+ '</div>';
+				var html = html + '<div class="mdl-card__supporting-text">' + response.boards[i].description + '</div>';
 				var html = html + '<div class="mdl-card__actions mdl-card--border">';
 				var html = html + '<a id="board_'+response.boards[i].name+'"  class="boardButton mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Go to the Board </a></div></div><br>'
 				$("#dataList").append(html);
